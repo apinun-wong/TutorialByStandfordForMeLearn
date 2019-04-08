@@ -6,7 +6,7 @@
 //  Copyright © 2019 Apinun Wongintawang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PlayingCard: CustomStringConvertible {
     var description: String {
