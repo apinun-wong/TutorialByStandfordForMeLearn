@@ -18,8 +18,19 @@ class ConcentrateViewController: UIViewController {
         return (cardButtons.count + 1) / 2
     }
     
+    private var emojiChoices: String = "🐱🐷🐭🐨🔥💂🏻‍♀️🦄👨‍🔧"
+    private var emoji = [Int: String]()
+    
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emoji = [:]
+            updateFromViewModel()
+        }
+    }
+    
     //MARK: Properties
-    fileprivate func udpateFlipCountLabel() {
+    fileprivate func updateFlipCountLabel() {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : 5.0,
             .strokeColor : UIColor.cyan
@@ -30,7 +41,7 @@ class ConcentrateViewController: UIViewController {
     
     var flipCount: Int = 0{
         didSet{
-            udpateFlipCountLabel()
+            updateFlipCountLabel()
         }
     }
     
@@ -59,36 +70,29 @@ class ConcentrateViewController: UIViewController {
                 button.setTitle("", for: .normal)
                 button.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
             }
-        }
-    }
-    
-//    private var emojiChoices: Array<String> = ["🐱", "🐷", "🐭", "🐨", "🔥", "💂🏻‍♀️", "🦄", "👨‍🔧"]
-    private var emojiChoices: String = "🐱🐷🐭🐨🔥💂🏻‍♀️🦄👨‍🔧"
-    private var emoji = [Card: String]()
-    
-    var theme: String? {
-        didSet {
-            emojiChoices = theme ?? ""
-            emoji = [:]
-            updateFromViewModel()
+            
+            if card.isMatched == true {
+                button.setTitle("", for: .normal)
+                button.backgroundColor = .clear
+            }
         }
     }
     
     private func emoji(for card: Card) -> String {
-        
-        if emoji[card] == nil, emojiChoices.count > 0 {
+        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
+            let str = String(emojiChoices.remove(at: randomStringIndex))
+            emoji[card.identifier] = str
         }
         
-        return emoji[card] ?? "?"
+        return emoji[card.identifier] ?? "?"
     }
     
+    //MARK:- Action
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
         
         if let cardNumber = cardButtons.index(of: sender){
-            
             self.game.chooseCard(at: cardNumber)
             self.updateFromViewModel()
         }else{

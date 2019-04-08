@@ -82,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB64C2CB225B471400AC8F03 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB2B592C2259CD9700590125 /* ConcentrateChooseThemeViewController.swift */,
+				FBA561322128BC1B0069E784 /* ConcentrateViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FB64C2CC225B473400AC8F03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FBC7877F212F16EB00BEED9F /* Concentration.swift */,
+				FBC78781212F17FB00BEED9F /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FB76AD8821F94702003C0E6E /* Learning */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,16 +131,14 @@
 		FBA5612F2128BC1B0069E784 /* Tutorial1 */ = {
 			isa = PBXGroup;
 			children = (
+				FB64C2CC225B473400AC8F03 /* Model */,
+				FB64C2CB225B471400AC8F03 /* ViewController */,
 				FB76AD8821F94702003C0E6E /* Learning */,
 				FBA561302128BC1B0069E784 /* AppDelegate.swift */,
-				FBA561322128BC1B0069E784 /* ConcentrateViewController.swift */,
-				FB2B592C2259CD9700590125 /* ConcentrateChooseThemeViewController.swift */,
 				FBA561342128BC1B0069E784 /* Main.storyboard */,
 				FBA561372128BC1E0069E784 /* Assets.xcassets */,
 				FBA561392128BC1E0069E784 /* LaunchScreen.storyboard */,
 				FBA5613C2128BC1E0069E784 /* Info.plist */,
-				FBC7877F212F16EB00BEED9F /* Concentration.swift */,
-				FBC78781212F17FB00BEED9F /* Card.swift */,
 			);
 			path = Tutorial1;
 			sourceTree = "<group>";

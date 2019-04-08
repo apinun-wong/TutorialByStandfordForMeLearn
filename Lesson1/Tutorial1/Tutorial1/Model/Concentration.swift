@@ -24,7 +24,8 @@ struct Concentration {
     }
     
     mutating func chooseCard(at index: Int) {
-        if let matchIndex = indexOfOneAndOnlyFaceUpCard, index != matchIndex {
+        if let matchIndex = indexOfOneAndOnlyFaceUpCard,
+            index != matchIndex {
             if cards[matchIndex] == cards[index] {
                 cards[matchIndex].isMatched = true
                 cards[index].isMatched = true
@@ -41,9 +42,6 @@ struct Concentration {
             let card = Card()
             cards += [card, card]
         }
-        
-        // TODO: Shuffle the cards
-        
     }
     
 }
