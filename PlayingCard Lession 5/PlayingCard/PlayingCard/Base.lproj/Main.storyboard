@@ -19,21 +19,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ymL-O6-yUD" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <rect key="frame" x="56.5" y="133.5" width="262.5" height="420"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ymL-O6-yUD" secondAttribute="height" multiplier="5:8" id="hS2-Z5-lVe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣︎"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vAh-MV-AEp" appends="YES" id="ydM-jc-D1c"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.52549019610000003" green="0.84705882349999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="ymL-O6-yUD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GgK-Wb-gea"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ymL-O6-yUD" secondAttribute="trailing" constant="20" id="nGc-1X-rO7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ymL-O6-yUD" secondAttribute="bottom" constant="20" id="xSe-TV-eIM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="ymL-O6-yUD" secondAttribute="top" constant="-20" id="zPW-HZ-aXw"/>
+                            <constraint firstItem="ymL-O6-yUD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GV9-NX-rtw"/>
+                            <constraint firstItem="ymL-O6-yUD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="cqe-Jy-7Mp"/>
+                            <constraint firstItem="ymL-O6-yUD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xYE-VO-v7H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playingCardView" destination="ymL-O6-yUD" id="CN3-c5-BI9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vAh-MV-AEp">
+                    <connections>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="PCI-Qa-vqy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
